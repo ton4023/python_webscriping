@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from scriping import TourismThailand
-import uvicorn
 
 app = FastAPI()
 
@@ -16,4 +15,3 @@ def read_theme():
 
 if __name__ == "__main__":
     tourismThailand = TourismThailand()  
-    uvicorn.run(app, host="0.0.0.0", port=8000)

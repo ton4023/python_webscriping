@@ -1,16 +1,9 @@
-FROM python:3.8-slim-buster
+FROM python:3.8
 
-ENV VIRTUAL_ENV=/opt/venv
-RUN python3 -m venv $VIRTUAL_ENV
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+RUN pip install fastapi uvicorn selenium
 
-COPY chromedriver .
+EXPOSE 80
 
-# Install dependencies:
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+COPY ./app /app
 
-# Run the application:
-COPY scriping.py .
-COPY main.py .
-CMD ["python", "main.py"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]

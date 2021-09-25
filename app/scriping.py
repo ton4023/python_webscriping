@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 
 class TourismThailand:
 
-    DRIVER_PATH = './chromedriver'
+    DRIVER_PATH = 'app/chromedriver'
     URL_PATH = 'https://www.tourismthailand.org/Destinations'
 
     def __init__(self):
